@@ -50,6 +50,7 @@ git commit -m "feat: <描述>"
 git checkout dev
 git fetch upstream
 git rebase upstream/dev
+bun install
 git push origin dev
 
 # 2. 在 feature 分支上接到最新 dev 后面
