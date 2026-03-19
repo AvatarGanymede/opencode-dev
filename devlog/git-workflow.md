@@ -17,7 +17,10 @@ git fetch upstream
 git rebase upstream/dev    # 或 git merge upstream/dev
 git push origin dev
 
-# 在 dev 上可写 devlog 等，commit / push 到 origin/dev
+# 在 dev 上写好 devlog 等内容后，提交并推送：
+git add devlog/
+git commit -m "docs(devlog): <描述>"
+git push origin dev
 # 这些提交不会进入后续的 feature PR
 ```
 
