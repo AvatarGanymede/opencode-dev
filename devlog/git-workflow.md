@@ -15,6 +15,7 @@
 git checkout dev
 git fetch upstream
 git rebase upstream/dev    # 或 git merge upstream/dev
+bun install
 git push origin dev
 
 # 在 dev 上写好 devlog 等内容后，提交并推送：
