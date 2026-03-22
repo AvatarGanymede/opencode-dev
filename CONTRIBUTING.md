@@ -14,10 +14,10 @@ However, any UI or core product feature must go through a design review with the
 
 If you are unsure if a PR would be accepted, feel free to ask a maintainer or look for issues with any of the following labels:
 
-- [`help wanted`](https://github.com/anomalyco/opencode/issues?q=is%3Aissue%20state%3Aopen%20label%3Ahelp-wanted)
-- [`good first issue`](https://github.com/anomalyco/opencode/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
-- [`bug`](https://github.com/anomalyco/opencode/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)
-- [`perf`](https://github.com/anomalyco/opencode/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22perf%22)
+- `[help wanted](https://github.com/anomalyco/opencode/issues?q=is%3Aissue%20state%3Aopen%20label%3Ahelp-wanted)`
+- `[good first issue](https://github.com/anomalyco/opencode/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)`
+- `[bug](https://github.com/anomalyco/opencode/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)`
+- `[perf](https://github.com/anomalyco/opencode/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22perf%22)`
 
 > [!NOTE]
 > PRs that ignore these guardrails will likely be closed.
@@ -27,13 +27,12 @@ Want to take on an issue? Leave a comment and a maintainer may assign it to you 
 ## Adding New Providers
 
 New providers shouldn't require many if ANY code changes, but if you want to add support for a new provider first make a PR to:
-https://github.com/anomalyco/models.dev
+[https://github.com/anomalyco/models.dev](https://github.com/anomalyco/models.dev)
 
 ## Developing OpenCode
 
 - Requirements: Bun 1.3+
 - Install dependencies and start the dev server from the repo root:
-
   ```bash
   bun install
   bun dev
@@ -119,7 +118,7 @@ To test UI changes during development:
 bun run --cwd packages/app dev
 ```
 
-This starts a local dev server at http://localhost:5173 (or similar port shown in output). Most UI changes can be tested here, but the server must be running for full functionality.
+This starts a local dev server at [http://localhost:5173](http://localhost:5173) (or similar port shown in output). Most UI changes can be tested here, but the server must be running for full functionality.
 
 ### Running the Desktop App
 
@@ -131,7 +130,7 @@ To run the native desktop app:
 bun run --cwd packages/desktop tauri dev
 ```
 
-This starts the web dev server on http://localhost:1420 and opens the native window.
+This starts the web dev server on [http://localhost:1420](http://localhost:1420) and opens the native window.
 
 If you only want the web dev server (no native shell):
 
@@ -165,10 +164,10 @@ your debugger via that URL. Other methods can result in breakpoints being mapped
 Caveats:
 
 - If you want to run the OpenCode TUI and have breakpoints triggered in the server code, you might need to run `bun dev spawn` instead of
-  the usual `bun dev`. This is because `bun dev` runs the server in a worker thread and breakpoints might not work there.
+the usual `bun dev`. This is because `bun dev` runs the server in a worker thread and breakpoints might not work there.
 - If `spawn` does not work for you, you can debug the server separately:
   - Debug server: `bun run --inspect=ws://localhost:6499/ --cwd packages/opencode ./src/index.ts serve --port 4096`,
-    then attach TUI with `opencode attach http://localhost:4096`
+  then attach TUI with `opencode attach http://localhost:4096`
   - Debug TUI: `bun run --inspect=ws://localhost:6499/ --cwd packages/opencode --conditions=browser ./src/index.ts`
 
 Other tips and tricks:
@@ -186,6 +185,20 @@ Some debug methods that can be problematic:
 - The same problem arises when running OpenCode in the VSCode `JavaScript Debug Terminal`
 
 With that said, you may want to try these methods, as they might work for you.
+
+#### Cursor Setup
+
+Cursor is based on VSCode, so the same debugger caveats usually apply.
+
+Recommended:
+
+- Use the provided Bun `attach` configuration (see [.vscode/launch.example.json](.vscode/launch.example.json)); avoid `"request": "launch"`.
+- Start OpenCode in a normal terminal (PowerShell) using `bun run --inspect-wait=ws://localhost:6499/ ...`, then `attach` from Cursor.
+
+Potentially problematic (same as VSCode):
+
+- Breakpoints may be incorrectly mapped when using debug configurations with `"request": "launch"`.
+- The same issue may happen if you run OpenCode inside Cursor/VSCode `JavaScript Debug Terminal`.
 
 ## Pull Request Expectations
 
@@ -266,7 +279,7 @@ For net-new functionality, start with a design conversation. Open an issue descr
 
 ## Trust & Vouch System
 
-This project uses [vouch](https://github.com/mitchellh/vouch) to manage contributor trust. The vouch list is maintained in [`.github/VOUCHED.td`](.github/VOUCHED.td).
+This project uses [vouch](https://github.com/mitchellh/vouch) to manage contributor trust. The vouch list is maintained in `[.github/VOUCHED.td](.github/VOUCHED.td)`.
 
 ### How it works
 
